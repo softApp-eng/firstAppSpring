@@ -1,0 +1,37 @@
+<div *ngIf="products">
+  <!--
+  <div *ngFor="let p of products._embedded.products">
+    
+    <div class="col-md-3">
+      <div class="card" style="width: 18rem">
+        <img src="" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{ p.name }}</h5>
+        </div>
+      </div>
+      
+    </div>
+  </div>-->
+  <div class="container">
+    <div class="row">
+      <div *ngFor="let p of products._embedded.products" class="col-md-6 ">
+        
+          <div class="card m-3" style="width: 18rem;">
+            <div class="card-header text-center">
+              {{ p.name }}
+            </div>
+            <img src="{{this.catService.host+'/photoProduct/'+p.id}}" class="card-img-top" alt="..." />
+            <div class="card-body text-center">
+         
+              <a class="card-text" class="btn btn-success me-2">{{p.currentPrice | number : '0.2'}}</a>
+              <a class="btn btn-warning text-capitalize text-white">add to panel</a>
+            </div>
+          </div>
+       
+        
+      </div>
+    
+  </div>
+</div>
+</div>
+
